@@ -1,0 +1,35 @@
+<template><div><h3 id="二-compact-array" tabindex="-1"><a class="header-anchor" href="#二-compact-array" aria-hidden="true">#</a> 二._.compact(array)</h3>
+<pre><code>创建一个新数组，包含原数组中所有的非假值元素。例如false, null,0, &quot;&quot;, undefined, 和 NaN 都是被认为是“假值”。
+_.compact([0, 1, false, 2, '', 3]);
+// =&gt; [1, 2, 3]
+</code></pre>
+<h4 id="官方源码" tabindex="-1"><a class="header-anchor" href="#官方源码" aria-hidden="true">#</a> 官方源码</h4>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code>    <span class="token keyword">function</span> <span class="token function">compact</span><span class="token punctuation">(</span><span class="token parameter">array</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> resIndex <span class="token operator">=</span> <span class="token number">0</span>
+      <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>    
+
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>array <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> result
+      <span class="token punctuation">}</span>    
+
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> value <span class="token keyword">of</span> array<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          result<span class="token punctuation">[</span>resIndex<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> value
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> result
+    <span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="自己的代码" tabindex="-1"><a class="header-anchor" href="#自己的代码" aria-hidden="true">#</a> 自己的代码</h4>
+<div class="language-javascript line-numbers-mode" data-ext="js"><pre v-pre class="language-javascript"><code>      <span class="token comment">//需求找到数组内偶数</span>
+      <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">NaN</span><span class="token punctuation">,</span><span class="token keyword">undefined</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">]</span>
+      <span class="token keyword">let</span> newArr <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> i<span class="token punctuation">,</span> arr</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">//函数本身返回布尔值，只有当返回值为true时，当前项存入新数组。</span>
+    	<span class="token keyword">return</span> item<span class="token operator">!==</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span><span class="token operator">!</span><span class="token function">isNaN</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span>item<span class="token operator">!==</span><span class="token keyword">undefined</span><span class="token operator">&amp;&amp;</span>item<span class="token operator">!==</span><span class="token boolean">false</span><span class="token operator">&amp;&amp;</span>item<span class="token operator">!==</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>item<span class="token operator">!==</span><span class="token string">''</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newArr<span class="token punctuation">)</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h4 id="应用场景" tabindex="-1"><a class="header-anchor" href="#应用场景" aria-hidden="true">#</a> 应用场景</h4>
+<pre><code>过滤数组中的假值
+</code></pre>
+</div></template>
+
+
